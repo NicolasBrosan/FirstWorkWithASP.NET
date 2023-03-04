@@ -1,0 +1,62 @@
+﻿
+@{
+    Layout = null;
+}
+@{
+    string titulo = "Página principal";
+    int dia = DateTime.Now.Day;
+    int mes = DateTime.Now.Month;
+    int año = DateTime.Now.Year;
+    string texto;
+    if (dia > 15)
+    {
+        texto = "Estamos en la segunda mitad del mes";
+    }
+    else
+    {
+        texto = "Estamos en la primera mitad del mes";
+    }
+}
+@{
+    string[] cursos = { "C# para no programadores", "Introduccion al paradigma de objetos", "HTML5: Fundamentos Web", "Programacion ASP .Net MVC" };
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div>
+        <h1>@titulo</h1>
+        <h3>Fecha: @dia/@mes/@año</h3>
+        <h4>@texto</h4>
+    </div>
+    <div>
+        <h1>Lista de Cursos:</h1>
+        <ul>
+            @foreach (string curso in cursos)
+            {
+                <p> - @curso</p>
+            }
+        </ul>
+    </div>
+    <div>
+        <table style="border: 1px solid blue; border-collapse: collapse">
+            @for (int fila = 1; fila <= 10; fila++)
+            {
+                <tr>
+                    @for (int columna = 1; columna <= 10; columna++)
+                    {
+                        <td style="border: 1px solid blue; border-collapse">
+                            @fila * @columna = @(fila * columna)
+                        </td>
+                    }
+                </tr>
+            }
+        </table>
+    </div>
+</body>
+</html>
